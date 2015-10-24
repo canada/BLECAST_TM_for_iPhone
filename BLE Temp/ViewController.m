@@ -7,16 +7,32 @@
 //
 
 #import "ViewController.h"
+#import "BLEBaseClass.h"
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ViewController ()
-
+@interface ViewController () <BLEBaseClassDelegate>
+@property (strong)		BLEBaseClass*	BaseClass;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _TempText.text = @"--";
+
+    //	BLEBaseClassの初期化
+    _BaseClass = [[BLEBaseClass alloc] init];
+    _BaseClass.delegate = self;
+    //	周りのBLEデバイスからのadvertise情報のスキャンを開始する
+    [_BaseClass scanDevices:nil];
+
+}
+
+- (void)didUpdateTemp:(BLEBaseClass *)blebase tempInfo:(NSString *)temp
+{
+    NSLog(@"here");
+    _TempText.text = temp;
 }
 
 - (void)didReceiveMemoryWarning {

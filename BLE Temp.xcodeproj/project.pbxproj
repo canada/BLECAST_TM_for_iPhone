@@ -15,6 +15,9 @@
 		06F02ADB1BDB970A00E41E37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F02AD91BDB970A00E41E37 /* LaunchScreen.storyboard */; };
 		06F02AE61BDB970A00E41E37 /* BLE_TempTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F02AE51BDB970A00E41E37 /* BLE_TempTests.m */; };
 		06F02AF11BDB970A00E41E37 /* BLE_TempUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F02AF01BDB970A00E41E37 /* BLE_TempUITests.m */; };
+		06F02B001BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F02AFF1BDB9B5F00E41E37 /* BLEBaseClass.m */; };
+		06F02B011BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F02AFF1BDB9B5F00E41E37 /* BLEBaseClass.m */; };
+		06F02B021BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F02AFF1BDB9B5F00E41E37 /* BLEBaseClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,8 @@
 		06F02AEC1BDB970A00E41E37 /* BLE TempUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLE TempUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F02AF01BDB970A00E41E37 /* BLE_TempUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLE_TempUITests.m; sourceTree = "<group>"; };
 		06F02AF21BDB970A00E41E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06F02AFE1BDB9ABF00E41E37 /* BLEBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEBaseClass.h; sourceTree = "<group>"; };
+		06F02AFF1BDB9B5F00E41E37 /* BLEBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEBaseClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,8 @@
 				06F02ACF1BDB970A00E41E37 /* AppDelegate.m */,
 				06F02AD11BDB970A00E41E37 /* ViewController.h */,
 				06F02AD21BDB970A00E41E37 /* ViewController.m */,
+				06F02AFE1BDB9ABF00E41E37 /* BLEBaseClass.h */,
+				06F02AFF1BDB9B5F00E41E37 /* BLEBaseClass.m */,
 				06F02AD41BDB970A00E41E37 /* Main.storyboard */,
 				06F02AD71BDB970A00E41E37 /* Assets.xcassets */,
 				06F02AD91BDB970A00E41E37 /* LaunchScreen.storyboard */,
@@ -271,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F02AD31BDB970A00E41E37 /* ViewController.m in Sources */,
+				06F02B001BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */,
 				06F02AD01BDB970A00E41E37 /* AppDelegate.m in Sources */,
 				06F02ACD1BDB970A00E41E37 /* main.m in Sources */,
 			);
@@ -281,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F02AE61BDB970A00E41E37 /* BLE_TempTests.m in Sources */,
+				06F02B011BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06F02AF11BDB970A00E41E37 /* BLE_TempUITests.m in Sources */,
+				06F02B021BDB9B5F00E41E37 /* BLEBaseClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
