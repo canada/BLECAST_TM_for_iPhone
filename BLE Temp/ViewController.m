@@ -20,6 +20,12 @@
     [super viewDidLoad];
     
     _TempText.text = @"--";
+    
+    UIUserNotificationType types = UIUserNotificationTypeBadge;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 
     //	BLEBaseClassの初期化
     _BaseClass = [[BLEBaseClass alloc] init];
@@ -31,7 +37,11 @@
 
 - (void)didUpdateTemp:(BLEBaseClass *)blebase tempInfo:(NSString *)temp
 {
-    NSLog(@"here");
+    NSInteger inttemp = [temp integerValue];
+    NSLog(@"%ld", (long)inttemp);
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;// (long)inttemp > 0 ? inttemp : 0;
+
     _TempText.text = temp;
 }
 
