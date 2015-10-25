@@ -18,7 +18,7 @@
 
 @interface BLEBaseClass() <CBCentralManagerDelegate>
 @property (strong)	CBCentralManager*	CentralManager;
-@property (strong)	NSMutableArray*		Devices;
+//@property (strong)	NSMutableArray*		Devices;
 @end
 
 @implementation BLEBaseClass
@@ -32,7 +32,7 @@
     while ([_CentralManager state] == CBCentralManagerStateUnknown)	{
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-    _Devices = [NSMutableArray array];
+    //_Devices = [NSMutableArray array];
     
     return self;
 }
@@ -45,11 +45,7 @@
 {
     if ([_CentralManager state] == CBCentralManagerStatePoweredOn)	{
         //	scan start
-        NSArray*	services = nil;
-        if (uuid != nil)	{
-            services = [NSArray arrayWithObjects:[CBUUID UUIDWithString:uuid], nil];
-        }
-        [_CentralManager scanForPeripheralsWithServices:services options:nil];
+        [_CentralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
         return TRUE;
     }
     return FALSE;
@@ -68,16 +64,21 @@
     range.location = 4;
     range.length = 1;
     char* bytes;
+    
+    NSString* myname   = @"BLECAST_TM";
     NSString* name = [advertisementData objectForKey:CBAdvertisementDataLocalNameKey];
     NSData  * data = [advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
+    
     NSString* temp;
     
     if(name == NULL) return;
     if(data == NULL) return;
+    if(! [myname isEqualToString:name]) return;
     
-    NSLog(@"name: %@",name);
     bytes = (char *)[data bytes];
     temp = [NSString stringWithFormat:@"%d%@", (int)bytes[4], ((int)bytes[5]) == -128 ? @".5" : @""];
+
+    NSLog(@"name: %@",name);
     NSLog(@"temp:%@", temp);
     
     [self.delegate didUpdateTemp:self tempInfo:temp];

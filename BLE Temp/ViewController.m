@@ -37,10 +37,9 @@
 
 - (void)didUpdateTemp:(BLEBaseClass *)blebase tempInfo:(NSString *)temp
 {
+    // write to badge
     NSInteger inttemp = [temp integerValue];
-    NSLog(@"%ld", (long)inttemp);
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;// (long)inttemp > 0 ? inttemp : 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = (long)inttemp > 0 ? inttemp : 0;
 
     _TempText.text = temp;
 }
